@@ -8,6 +8,7 @@ class AuthorSelection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final photoAuthorState = ref.watch(photoAuthorProvider);
     return Wrap(
       spacing: 5.0,
       runSpacing: 5.0,
@@ -16,7 +17,7 @@ class AuthorSelection extends ConsumerWidget {
         (int index) {
           return ChoiceChip(
             label: Text(authors[index]),
-            selected: ref.read(photoAuthorProvider).author == authors[index],
+            selected: photoAuthorState.author == authors[index],
             onSelected: (bool selected) {
               ref.read(photoAuthorProvider.notifier).setAuthor(
                     selected ? authors[index] : null,

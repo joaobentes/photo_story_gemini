@@ -13,8 +13,6 @@ class PhotoAuthorScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final photoAuthorState = ref.watch(photoAuthorProvider);
-
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text('Generate a intro for your photo')),
@@ -27,20 +25,20 @@ class PhotoAuthorScreen extends ConsumerWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: const Padding(
+        padding: EdgeInsets.all(16.0),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               defaultSpacer,
-              const Text(
+              Text(
                 '1) Take or upload a photo',
                 style: TextStyle(fontSize: 18.0),
               ),
-              const SizedBox(height: 16.0),
-              const Row(
+              SizedBox(height: 16.0),
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   PhotoButton(
@@ -55,14 +53,14 @@ class PhotoAuthorScreen extends ConsumerWidget {
                 ],
               ),
               defaultSpacer,
-              if (photoAuthorState.photo != null) const PhotoDisplay(),
+              PhotoDisplay(),
               defaultSpacer,
-              const Text(
+              Text(
                 '2) Select one of the following authors:',
                 style: TextStyle(fontSize: 18.0),
               ),
               defaultSpacer,
-              const AuthorSelection(),
+              AuthorSelection(),
             ],
           ),
         ),
