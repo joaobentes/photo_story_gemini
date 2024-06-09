@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:photo_story_gemini/providers/photo_author_provider.dart';
+import 'package:photo_story_gemini/widgets/photo_display.dart';
+import 'package:photo_story_gemini/widgets/spacing.dart';
 
 class StoryIntroScreen extends ConsumerWidget {
   const StoryIntroScreen({super.key});
@@ -19,16 +21,8 @@ class StoryIntroScreen extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               if (photoAuthorState.photo != null)
-                Center(
-                  child: SizedBox(
-                    height: 400,
-                    child: Image.file(
-                      photoAuthorState.photo!,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              const SizedBox(height: 16.0),
+                const PhotoDisplay(readOnly: true),
+              defaultSpacer,
               RichText(
                 text: TextSpan(
                   text: 'Intro by ',
@@ -45,7 +39,7 @@ class StoryIntroScreen extends ConsumerWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 16.0),
+              defaultSpacer,
               storyIntroAsyncValue.when(
                 data: (storyIntro) => Text(
                   storyIntro,
