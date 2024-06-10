@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:photo_story_gemini/providers/photo_author_provider.dart';
 import 'package:photo_story_gemini/widgets/photo_display.dart';
-import 'package:photo_story_gemini/widgets/spacing.dart';
+import 'package:photo_story_gemini/widgets/spacer.dart';
 
 class StoryIntroScreen extends ConsumerWidget {
   const StoryIntroScreen({super.key});
@@ -22,7 +22,7 @@ class StoryIntroScreen extends ConsumerWidget {
             children: <Widget>[
               if (photoAuthorState.photo != null)
                 const PhotoDisplay(readOnly: true),
-              defaultSpacer,
+              const DefaultSpacer(),
               RichText(
                 text: TextSpan(
                   text: 'Intro by ',
@@ -39,7 +39,7 @@ class StoryIntroScreen extends ConsumerWidget {
                   ],
                 ),
               ),
-              defaultSpacer,
+              const DefaultSpacer(),
               storyIntroAsyncValue.when(
                 data: (storyIntro) => Text(
                   storyIntro,

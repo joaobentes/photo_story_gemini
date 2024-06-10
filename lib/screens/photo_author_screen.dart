@@ -6,7 +6,7 @@ import 'package:photo_story_gemini/widgets/author_selection.dart';
 import 'package:photo_story_gemini/widgets/generate_story_button.dart';
 import 'package:photo_story_gemini/widgets/photo_button.dart';
 import 'package:photo_story_gemini/widgets/photo_display.dart';
-import 'package:photo_story_gemini/widgets/spacing.dart';
+import 'package:photo_story_gemini/widgets/spacer.dart';
 
 class PhotoAuthorScreen extends ConsumerWidget {
   const PhotoAuthorScreen({super.key});
@@ -32,7 +32,7 @@ class PhotoAuthorScreen extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              defaultSpacer,
+              DefaultSpacer(),
               Text(
                 '1) Take or upload a photo',
                 style: TextStyle(fontSize: 18.0),
@@ -52,14 +52,14 @@ class PhotoAuthorScreen extends ConsumerWidget {
                   ),
                 ],
               ),
-              defaultSpacer,
+              DefaultSpacer(),
               PhotoDisplay(),
-              defaultSpacer,
+              DefaultSpacer(),
               Text(
                 '2) Select one of the following authors:',
                 style: TextStyle(fontSize: 18.0),
               ),
-              defaultSpacer,
+              DefaultSpacer(),
               AuthorSelection(),
             ],
           ),
