@@ -1,4 +1,4 @@
-# Project Title: Gemini Story Generator
+# Gemini Story Generator
 
 This project is a Flutter application that uses the Gemini API to generate story intros. The user inputs an image and an author's name, and the Gemini API returns a story intro based on these inputs.
 
